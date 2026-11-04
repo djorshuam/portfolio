@@ -8,7 +8,7 @@
 <meta name="description" content="Portfólio de David Jorshuam de Oliveira Rufino, Analista de Dados Sênior: SQL, Python, Power BI, automação em Docker e aplicações web com IA.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="David Jorshuam, Analista de Dados Sênior">
-<meta property="og:description" content="SQL sobre Data Lake, pipelines em Python, Power BI, automação em Docker e IA aplicada. Consulte o portfólio em SQL.">
+<meta property="og:description" content="SQL sobre Data Lake, pipelines em Python, Power BI, automação em Docker e IA aplicada. Pergunte sobre a experiência dele direto no site.">
 <meta property="og:image" content="https://djorshuam.github.io/portfolio/assets/david.jpg">
 <meta property="og:url" content="https://djorshuam.github.io/portfolio/">
 <link rel="canonical" href="https://djorshuam.github.io/portfolio/">
@@ -140,6 +140,12 @@ h3 { font-size: var(--t-h3); line-height: 1.2; font-weight: 700; letter-spacing:
   color: #c9d2de; background: #18212c; border: 0; padding: 10px 12px; overflow-wrap: anywhere;
 }
 .examples button:hover { background: #222e3c; color: #fff; }
+.examples button.q { font-family: var(--font-body); font-size: .95rem; }
+@media (max-width: 860px) {
+  .examples { display: flex; flex-wrap: wrap; }
+  .examples button { flex: 1 1 100%; }
+  .examples button.q { flex: 0 1 auto; border-radius: 999px; padding: 8px 14px; font-size: .875rem; }
+}
 .examples .k { color: var(--kw); }
 .examples .s { color: var(--str); }
 .term { font-family: var(--font-mono); font-size: .86rem; line-height: 1.55; background: #121a24; min-width: 0; }
@@ -148,7 +154,29 @@ h3 { font-size: var(--t-h3); line-height: 1.2; font-weight: 700; letter-spacing:
 .term-bar .dot:nth-child(1) { background: #e0675d; }
 .term-bar .dot:nth-child(2) { background: #e3b341; }
 .term-bar .dot:nth-child(3) { background: #5fb871; }
-.term-bar .title { margin-left: 8px; color: #7f8b9b; font-size: .78rem; }
+.tabs { margin-left: auto; display: flex; gap: 4px; }
+.tabs button { font: 500 .78rem var(--font-mono); color: #8b97a8; background: transparent; border: 0; border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: #2a3746; color: #fff; }
+.tabs button:hover { color: #fff; }
+.ask { font-family: var(--font-body); font-size: .95rem; }
+.ask-form { display: flex; gap: 8px; padding: 14px; background: #121a24; }
+.ask-form input { flex: 1; min-width: 0; font: inherit; color: #eef2f6; background: #0d131b; border: 0; border-radius: 999px; padding: 10px 16px; outline: none; }
+.ask-form input:focus-visible { outline: 2px solid var(--kw); outline-offset: 0; }
+.ask-form input::placeholder { color: #66727f; }
+.ask-form button { flex: none; font: 600 .875rem var(--font-body); color: #1a1305; background: var(--kw); border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; }
+.ask-out { padding: 4px 14px 16px; height: 400px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #3a4655 transparent; }
+@media (max-width: 640px) { .ask-out { height: 440px; } }
+.ask-q { color: #f2f5fa; font-weight: 600; margin: 12px 0 10px; }
+.ask-q span { color: #7f8b9b; font-weight: 400; }
+.hits { display: grid; gap: 10px; }
+.hit { background: #18212c; padding: 14px 16px; }
+.hit h4 { margin: 0 0 6px; font: 600 .95rem var(--font-body); color: #f2f5fa; }
+.hit ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; color: #c9d2de; }
+.hit a { display: inline-block; margin-top: 8px; color: var(--str); font-size: .82rem; font-weight: 600; text-decoration: none; }
+.hit a:hover { text-decoration: underline; }
+.hit mark { background: rgba(240, 181, 74, .22); color: #fff; border-radius: 3px; padding: 0 2px; }
+.ask-none { background: #18212c; padding: 14px 16px; color: #c9d2de; }
+.ask-how { margin: 12px 0 0; color: #7f8b9b; font-size: .8rem; }
 .term-body { padding: 16px; height: 380px; overflow-y: auto; cursor: text; }
 @media (max-width: 640px) { .term-body { height: 340px; } }
 .term-out > div { white-space: pre-wrap; word-break: break-word; }
@@ -300,22 +328,38 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     </div>
   </header>
 
-  <section class="console" aria-labelledby="console-h">
+  <section class="console" id="pergunte" aria-labelledby="console-h">
     <div class="wrap">
       <div>
-        <h2 id="console-h">Pergunte ao portfólio em SQL</h2>
-        <p>Experiência, projetos, skills e formação estão em tabelas. Escreva um SELECT no terminal ou toque num exemplo.</p>
+        <h2 id="console-h">Pergunte sobre o David</h2>
+        <p id="console-lede"></p>
         <div class="examples" id="examples"></div>
       </div>
-      <div class="term" role="region" aria-label="Terminal interativo">
-        <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">portfolio.sql</span></div>
-        <div class="term-body" id="term-body">
-          <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
-          <form class="term-line" id="term-form" autocomplete="off">
-            <span class="p" aria-hidden="true">❯</span>
-            <label class="sr" for="term-in">Comando do terminal</label>
-            <input id="term-in" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="send" placeholder="help, tabelas ou um SELECT">
+      <div class="term" role="region" aria-label="Perguntas sobre o portfólio">
+        <div class="term-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <div class="tabs" role="tablist" aria-label="Modo">
+            <button type="button" role="tab" id="tab-ask" aria-controls="panel-ask" aria-selected="true">Pergunta</button>
+            <button type="button" role="tab" id="tab-sql" aria-controls="panel-sql" aria-selected="false" tabindex="-1">SQL</button>
+          </div>
+        </div>
+        <div id="panel-ask" role="tabpanel" aria-labelledby="tab-ask" class="ask">
+          <form class="ask-form" id="ask-form" autocomplete="off">
+            <label class="sr" for="ask-in">Sua pergunta</label>
+            <input id="ask-in" type="search" enterkeyhint="search" placeholder="Ex.: ele já liderou equipe?">
+            <button type="submit">Perguntar</button>
           </form>
+          <div class="ask-out" id="ask-out" aria-live="polite"></div>
+        </div>
+        <div id="panel-sql" role="tabpanel" aria-labelledby="tab-sql" hidden>
+          <div class="term-body" id="term-body">
+            <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
+            <form class="term-line" id="term-form" autocomplete="off">
+              <span class="p" aria-hidden="true">❯</span>
+              <label class="sr" for="term-in">Comando do terminal</label>
+              <input id="term-in" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="send" placeholder="help, tabelas ou um SELECT">
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -744,29 +788,177 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     input.focus({ preventScroll: true });
   });
 
+  /* ================= pergunta em português (recuperação, sem IA generativa) ================= */
+  var CHUNKS = [];
+  function add(titulo, texto, ancora) { CHUNKS.push({ titulo: titulo, texto: texto, ancora: ancora }); }
+  EXPERIENCIA.forEach(function (x) {
+    var t = x.cargo + ', ' + x.empresa + ' (' + x.quando + ')';
+    add(t, 'Cargo de ' + x.cargo + ' na ' + x.empresa + ', ' + x.quando + '.', 'experiencia');
+    x.bullets.forEach(function (b) { add(t, b, 'experiencia'); });
+    add(t, 'Ferramentas e temas: ' + x.tags.join(', ') + '.', 'experiencia');
+  });
+  PROJETOS.forEach(function (p) {
+    var t = 'Projeto ' + p.tipo + ': ' + p.nome;
+    add(t, p.resumo, 'projetos');
+    (p.bullets || []).forEach(function (b) { add(t, b, 'projetos'); });
+    add(t, 'Tecnologias: ' + p.stack.join(', ') + '.', 'projetos');
+  });
+  Object.keys(SKILLS).forEach(function (k) { add('Stack: ' + k, SKILLS[k].join(', ') + '.', 'stack'); });
+  Object.keys(FORMACAO).forEach(function (k) {
+    FORMACAO[k].forEach(function (f) { add(k + ': ' + f.curso, f.curso + ', ' + f.inst + (f.periodo ? ', ' + f.periodo : '') + '.', 'formacao'); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('#sobre .about-text p'), function (el) { add('Sobre o David', el.textContent.trim(), 'sobre'); });
+  Array.prototype.forEach.call(document.querySelectorAll('#sobre .facts-kv dt'), function (dt) { add('Sobre o David', dt.textContent + ': ' + dt.nextElementSibling.textContent + '.', 'sobre'); });
+  add('Sobre o David', 'Mora em Fortaleza/CE, Brasil, e trabalha como Analista de Dados Sênior.', 'sobre');
+  add('Contato', 'E-mail david.jorshuam@gmail.com, LinkedIn in/david-jorshuam e GitHub github.com/djorshuam.', 'contato');
+
+  var STOP = {};
+  ('a o e os as um uma uns umas de da do das dos em no na nos nas num numa por para pra pro pros com sem que qual quais quem como onde quando ' +
+   'ele ela dele dela david jorshuam ja tem teve ter tinha tera sabe sabia conhece conheceu usa usou usar usa fez faz fazer feito algum alguma alguns algumas ' +
+   'voce seu sua seus suas isso esse essa este esta mais ou tambem foi sao ser estar trabalhou trabalha trabalhar trabalho experiencia experiencias ' +
+   'sobre me mim meu minha nao sim muito pouco ainda ai la aqui coisa coisas tipo bem pode posso consegue quanto quantos quantas anos ano')
+    .split(' ').forEach(function (w) { STOP[w] = 1; });
+
+  function key(w) {
+    if (w.length > 3 && w.length <= 5 && w.charAt(w.length - 1) === 's') w = w.slice(0, -1);
+    return w.length > 5 ? w.slice(0, 6) : w;
+  }
+  function words(s) { return norm(s).replace(/[^a-z0-9+#]+/g, ' ').split(' ').filter(Boolean); }
+  function keys(s) { return words(s).filter(function (w) { return !STOP[w]; }).map(key); }
+
+  var SINONIMOS = [
+    [/\b(lider\w*|gestor|gerenc\w*|chefe|time|equipe|equipes|gestao de pessoas)\b/, 'coordeno equipe coordenacao'],
+    [/\b(ia|inteligencia artificial|llm|llms|gpt|genai|generativa|chatgpt|openai|agente|agentes)\b/, 'ia rag llm claude ollama mcp machine learning agentes'],
+    [/\b(nuvem|cloud|aws|azure|gcp)\b/, 'cloud vercel oracle oci supabase azure'],
+    [/\b(bi|dashboard|dashboards|relatorio|relatorios|painel|paineis|visualizacao|indicadores)\b/, 'power bi dashboards dax painel relatorios indicadores'],
+    [/\b(banco|bancos|database|databases|bd|dba)\b/, 'sql postgresql oracle banco'],
+    [/\b(etl|elt|pipeline|pipelines|integracao|integracoes|ingestao|integrar)\b/, 'etl pipelines integrando apis pentaho extracao'],
+    [/\b(devops|ci|cd|cicd|deploy|infra|infraestrutura|container|containers)\b/, 'docker github actions deploy linux nginx'],
+    [/\b(front|frontend|interface|ui|tela|telas)\b/, 'react next.js typescript vite'],
+    [/\b(back|backend|api|apis|servidor|web)\b/, 'node express fastapi apis backend aplicacao'],
+    [/\b(saude|operadora|ans|hospital\w*|regula\w*)\b/, 'ans nip saude operadora hospitalar'],
+    [/\b(lgpd|privacidade|seguranca|compliance|governanca)\b/, 'lgpd rls jwt rbac governanca seguranca'],
+    [/\b(ingles|idioma|idiomas|lingua|linguas)\b/, 'ingles idiomas'],
+    [/\b(formacao|faculdade|graduacao|graduado|estudou|estuda|curso|cursos|mba|pos|universidade|formado)\b/, 'formacao engenharia mba unifor curso'],
+    [/\b(contato|email|e mail|falar|contratar|chamar)\b/, 'contato email linkedin'],
+    [/\b(processo|processos|bpmn|mapeamento|mapear)\b/, 'bpmn bizagi camunda processos'],
+    [/\b(ensinar|ensina|professor|docencia|didatica|aula|aulas|monitor|monitoria)\b/, 'monitor docencia'],
+    [/\b(ml|machine learning|preditivo|predicao|previsao|modelo|modelos)\b/, 'machine learning predicao modelo'],
+    [/\b(automacao|automacoes|automatizar|automatizou|rpa|robo|robos|bot|bots)\b/, 'automacao automatizei n8n power automate bots'],
+    [/\b(mora|cidade|localizacao|onde fica)\b/, 'fortaleza'],
+    [/\b(sql|consulta|consultas|query|queries)\b/, 'sql consultas ctes window'],
+    [/\b(excel|planilha|planilhas|vba)\b/, 'excel vba planilhas'],
+    [/\b(git|github|versionamento|versionar)\b/, 'git github versionado'],
+    [/\b(migracao|migrar|migrou|modernizacao|legado)\b/, 'migracao migrei modernizacao legado pg_dump']
+  ];
+
+  var N = CHUNKS.length, DF = {}, avgLen = 0;
+  CHUNKS.forEach(function (c) {
+    c.k = keys(c.titulo + ' ' + c.texto); avgLen += c.k.length;
+    var seen = {}; c.k.forEach(function (t) { if (!seen[t]) { seen[t] = 1; DF[t] = (DF[t] || 0) + 1; } });
+  });
+  avgLen /= N;
+
+  function buscar(q) {
+    var base = keys(q), nq = ' ' + words(q).join(' ') + ' ', extra = [];
+    SINONIMOS.forEach(function (s) { if (s[0].test(nq)) extra = extra.concat(keys(s[1])); });
+    var peso = {};
+    base.forEach(function (t) { peso[t] = 1; });
+    extra.forEach(function (t) { if (!peso[t]) peso[t] = .6; });
+    var termos = Object.keys(peso).filter(function (t) { return DF[t]; });
+    var scored = CHUNKS.map(function (c) {
+      var s = 0, tf = {};
+      c.k.forEach(function (t) { tf[t] = (tf[t] || 0) + 1; });
+      termos.forEach(function (t) {
+        if (!tf[t]) return;
+        var idf = Math.log(1 + (N - DF[t] + .5) / (DF[t] + .5));
+        s += peso[t] * idf * (tf[t] * 2.2) / (tf[t] + 1.2 * (.25 + .75 * c.k.length / avgLen));
+      });
+      return { c: c, s: s };
+    }).filter(function (x) { return x.s > 0; }).sort(function (a, b) { return b.s - a.s; });
+    var grupos = [], porTitulo = {};
+    scored.forEach(function (x) {
+      var g = porTitulo[x.c.titulo];
+      if (!g) { if (grupos.length >= 3) return; g = porTitulo[x.c.titulo] = { titulo: x.c.titulo, ancora: x.c.ancora, itens: [] }; grupos.push(g); }
+      if (g.itens.length < 2) g.itens.push(x.c.texto);
+    });
+    return { grupos: grupos, termos: termos, base: base };
+  }
+
+  function marcar(texto, termos) {
+    var set = {}; termos.forEach(function (t) { set[t] = 1; });
+    var out = '', last = 0, re = /[A-Za-zÀ-ÿ0-9+#]+/g, m;
+    while ((m = re.exec(texto))) {
+      out += esc(texto.slice(last, m.index));
+      var w = norm(m[0]);
+      out += (!STOP[w] && set[key(w)]) ? '<mark>' + esc(m[0]) + '</mark>' : esc(m[0]);
+      last = re.lastIndex;
+    }
+    return out + esc(texto.slice(last));
+  }
+
+  var SECAO = { experiencia: 'Experiência', projetos: 'Projetos', stack: 'Stack', formacao: 'Formação', sobre: 'Sobre', contato: 'Contato' };
+  var askOut = $('ask-out');
+  function perguntar(q) {
+    q = q.trim(); if (!q) return;
+    var r = buscar(q), html = '<p class="ask-q"><span>Pergunta:</span> ' + esc(q) + '</p>';
+    if (!r.grupos.length) {
+      html += '<div class="ask-none">Não encontrei isso no portfólio. Se for importante para a vaga, vale perguntar direto ao David pelo <a href="#contato" style="color:var(--str)">e-mail ou LinkedIn</a>.</div>';
+    } else {
+      html += '<div class="hits">' + r.grupos.map(function (g) {
+        return '<div class="hit"><h4>' + esc(g.titulo) + '</h4><ul>' + g.itens.map(function (t) { return '<li>' + marcar(t, r.termos) + '</li>'; }).join('') +
+          '</ul><a href="#' + g.ancora + '">Ver em ' + SECAO[g.ancora] + ' ↓</a></div>';
+      }).join('') + '</div>';
+    }
+    html += '<p class="ask-how">Como respondi: busquei ' + (r.termos.length || 'nenhum') + (r.termos.length === 1 ? ' termo' : ' termos') +
+      ' (com sinônimos) em ' + N + ' trechos do portfólio e mostrei os mais relevantes. Nenhum texto foi gerado por IA.</p>';
+    askOut.innerHTML = html;
+    askOut.scrollTop = 0;
+  }
+  $('ask-form').addEventListener('submit', function (e) { e.preventDefault(); perguntar($('ask-in').value); });
+
+  /* ================= abas e exemplos ================= */
+  var PERGUNTAS = ['Ele já liderou equipe?', 'Já trabalhou com IA?', 'Tem experiência com nuvem?', 'Já fez migração de banco?', 'Onde estudou?'];
   var EXEMPLOS = [
     "SELECT nome, status FROM projetos WHERE tipo = 'corporativo';",
     'SELECT categoria, COUNT(*) FROM skills GROUP BY categoria ORDER BY count(*) DESC;',
     "SELECT skill FROM skills WHERE skill LIKE '%sql%';",
     'SELECT cargo, empresa, inicio FROM experiencia;'
   ];
-  $('examples').innerHTML = EXEMPLOS.map(function (x, i) { return '<button type="button" data-i="' + i + '">' + hlSQL(x) + '</button>'; }).join('');
+  var LEDE = {
+    ask: 'Escreva uma pergunta em português. A resposta mostra os trechos do portfólio que falam disso, com link para a seção de onde saíram.',
+    sql: 'Experiência, projetos, skills e formação também estão em tabelas. Escreva um SELECT ou toque num exemplo.'
+  };
+  var modo = 'ask', sqlIniciado = false;
+  function setModo(m) {
+    modo = m;
+    $('tab-ask').setAttribute('aria-selected', m === 'ask'); $('tab-ask').tabIndex = m === 'ask' ? 0 : -1;
+    $('tab-sql').setAttribute('aria-selected', m === 'sql'); $('tab-sql').tabIndex = m === 'sql' ? 0 : -1;
+    $('panel-ask').hidden = m !== 'ask'; $('panel-sql').hidden = m !== 'sql';
+    $('console-lede').textContent = LEDE[m];
+    $('examples').innerHTML = m === 'ask'
+      ? PERGUNTAS.map(function (x, i) { return '<button type="button" class="q" data-i="' + i + '">' + esc(x) + '</button>'; }).join('')
+      : EXEMPLOS.map(function (x, i) { return '<button type="button" data-i="' + i + '">' + hlSQL(x) + '</button>'; }).join('');
+    if (m === 'sql' && !sqlIniciado) {
+      sqlIniciado = true;
+      print('<span class="d">-- conectado ao portfólio. Digite</span> <span class="s">help</span> <span class="d">para ver os comandos.</span>');
+      echo(EXEMPLOS[0]); table(runSQL(EXEMPLOS[0]));
+    }
+  }
+  $('tab-ask').addEventListener('click', function () { setModo('ask'); });
+  $('tab-sql').addEventListener('click', function () { setModo('sql'); });
+  document.querySelector('.tabs').addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    var m = modo === 'ask' ? 'sql' : 'ask'; setModo(m); $('tab-' + m).focus();
+  });
   $('examples').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
-    var q = EXEMPLOS[+b.dataset.i]; hist.push(q); hi = hist.length; run(q);
+    if (modo === 'ask') { var q = PERGUNTAS[+b.dataset.i]; $('ask-in').value = q; perguntar(q); }
+    else { var s = EXEMPLOS[+b.dataset.i]; hist.push(s); hi = hist.length; run(s); }
   });
 
-  /* intro */
-  var INTRO = "SELECT nome, status FROM projetos WHERE tipo = 'corporativo';";
-  print('<span class="d">-- conectado ao portfólio. Digite</span> <span class="s">help</span> <span class="d">para ver os comandos.</span>');
-  if (reduced) { echo(INTRO); table(runSQL(INTRO)); }
-  else {
-    var line = document.createElement('div'); out.appendChild(line); var i = 0;
-    (function type() {
-      line.innerHTML = '<span class="p">❯</span> ' + hlSQL(INTRO.slice(0, i));
-      if (i++ < INTRO.length) setTimeout(type, 22); else table(runSQL(INTRO));
-    })();
-  }
+  setModo('ask');
+  perguntar('Já trabalhou com IA?');
 })();
 </script>
 </body>
