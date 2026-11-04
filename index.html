@@ -51,7 +51,7 @@
   --t-ui: 1rem;
   --t-body: clamp(1.0625rem, 1rem + .25vw, 1.1875rem);
   --t-head: clamp(1.75rem, 1.2rem + 1.7vw, 2.25rem);
-  --t-xl: clamp(2.5rem, 1.4rem + 3.8vw, 4.25rem);
+  --t-xl: clamp(2rem, 1.3rem + 2.2vw, 3rem);
   --m: clamp(20px, 2.4vw, 32px);
   --gap: clamp(88px, 11vw, 176px);
   --ease: cubic-bezier(.22,.8,.3,1);
@@ -224,7 +224,6 @@ h3 { font-size: var(--t-body); font-family: var(--font-body); font-weight: 600; 
 .about-text { grid-column: 4 / -1; }
 .about-text p { margin: 0 0 20px; max-width: 60ch; }
 .about-text p:first-child { font-size: var(--t-head); line-height: 1.2; max-width: none; margin-bottom: 36px; font-weight: 400; }
-.about-text p:first-child img { float: left; width: 3.6em; height: 3.6em; object-fit: cover; object-position: 50% 20%; margin: .1em .5em 0 0; background: var(--surface); }
 .facts-kv { margin: 0; display: grid; gap: 22px; font-size: var(--t-small); }
 .facts-kv div { display: grid; gap: 4px; }
 .facts-kv dt { color: var(--muted); }
@@ -233,7 +232,6 @@ h3 { font-size: var(--t-body); font-family: var(--font-body); font-weight: 600; 
   .about h2, .about-aside, .about-text { grid-column: 1 / -1; }
   .about-aside { order: 3; margin-top: 12px; }
   .about-text p:first-child { font-size: 1.25rem; line-height: 1.3; }
-  .about-text p:first-child img { width: 4em; height: 4em; }
   .facts-kv { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 }
 
@@ -457,7 +455,7 @@ footer .small a { color: inherit; }
         </dl>
       </div>
       <div class="about-text">
-        <p><img src="assets/david.jpg" alt="Retrato de David Jorshuam" width="540" height="540" loading="lazy">Trabalho com o ciclo inteiro de dados: consulta, integração, modelo, painel e a automação que mantém tudo rodando.</p>
+        <p>Trabalho com o ciclo inteiro de dados: consulta, integração, modelo, painel e a automação que mantém tudo rodando.</p>
         <p>No dia a dia são consultas SQL avançadas sobre o Data Lake corporativo, pipelines ETL/ELT em Python que integram APIs, Pentaho e bancos relacionais, e dashboards em Power BI com DAX e Power Query. Tudo sob as normas da ANS e com cuidado de LGPD em dados sensíveis.</p>
         <p>Nos últimos projetos fui além do BI: transformei um painel legado numa aplicação Node.js com PostgreSQL, migrei um banco para Supabase self-hosted e construí um classificador de relatos com RAG.</p>
         <p>Venho da Engenharia Mecânica e da análise de processos industriais, de onde trouxe o hábito de mapear o processo antes de automatizá-lo. Na Unifor, fui monitor de Algoritmos e de Termodinâmica.</p>
