@@ -11,7 +11,7 @@ SELECT nome, status FROM projetos WHERE tipo = 'corporativo';
 SELECT categoria, COUNT(*) FROM skills GROUP BY categoria ORDER BY count(*) DESC;
 ```
 
-O conteúdo fica nos arrays `EXPERIENCIA`, `PROJETOS`, `SKILLS` e `FORMACAO`
-no `<script>` do `index.html`.
+Este repositório é publicado automaticamente a partir de um repositório
+privado; mudanças feitas direto aqui são sobrescritas na próxima publicação.
 
 Rodar localmente: `python3 -m http.server 8000` e abrir http://localhost:8000
