@@ -125,7 +125,11 @@ h3 { font-size: var(--t-h3); line-height: 1.2; font-weight: 700; letter-spacing:
 }
 
 /* ---------- faixa do terminal ---------- */
-.console { background: var(--term-bg); color: var(--term-fg); }
+.console { background: var(--term-bg); color: var(--term-fg); color-scheme: dark; }
+.term-body { scrollbar-width: thin; scrollbar-color: #3a4655 transparent; }
+.term-body::-webkit-scrollbar { width: 8px; }
+.term-body::-webkit-scrollbar-thumb { background: #3a4655; border-radius: 4px; }
+.term-body::-webkit-scrollbar-track { background: transparent; }
 .console .wrap { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: clamp(24px, 5vw, 64px); padding-block: clamp(40px, 6vw, 72px); align-items: start; }
 @media (max-width: 860px) { .console .wrap { grid-template-columns: minmax(0, 1fr); } }
 .console h2 { color: #f2f5fa; font-size: clamp(1.75rem, 3.4vw, 2.4rem); }
