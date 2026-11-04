@@ -488,11 +488,12 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       cargo: 'Desenhista Técnico Mecânico', empresa: '4M Engenharia', inicio: '2019-10', fim: '2022-12', quando: 'out/2019 a dez/2022',
       bullets: [
         'Entrei como estagiário e fui efetivado em fev/2020.',
+        'Desde a efetivação, liderança técnica de cerca de 19 pessoas (3 desenhistas, 6 da montagem e 10 de obra, incluindo serralheiros e terceirizados): repassava as informações técnicas, explicava as demandas e organizava as rotas de saída e a montagem.',
         'Gestão de ponta a ponta de projetos de centrais de GLP conforme a NBR 13523: documentação, escopo, cronograma e recursos.',
         'Acompanhamento de obras e fabricação de estruturas metálicas, identificando desvios de prazo.',
         'Implantação de quadros no Trello e planilhas de controle para organizar os projetos.'
       ],
-      tags: ['NBR 13523', 'Gestão de projetos', 'Trello']
+      tags: ['Liderança técnica', 'NBR 13523', 'Gestão de projetos', 'Trello']
     }
   ];
 
@@ -827,7 +828,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   function keys(s) { return words(s).filter(function (w) { return !STOP[w]; }).map(key); }
 
   var SINONIMOS = [
-    [/\b(lider\w*|gestor|gerenc\w*|chefe|time|equipe|equipes|gestao de pessoas)\b/, 'coordeno equipe coordenacao'],
+    [/\b(lider\w*|gestor|gerenc\w*|chefe|time|equipe|equipes|gestao de pessoas)\b/, 'coordeno equipe coordenacao lideranca'],
     [/\b(ia|inteligencia artificial|llm|llms|gpt|genai|generativa|chatgpt|openai|agente|agentes)\b/, 'ia rag llm claude ollama mcp machine learning agentes'],
     [/\b(nuvem|cloud|aws|azure|gcp)\b/, 'cloud vercel oracle oci supabase azure'],
     [/\b(bi|dashboard|dashboards|relatorio|relatorios|painel|paineis|visualizacao|indicadores)\b/, 'power bi dashboards dax painel relatorios indicadores'],
