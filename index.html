@@ -551,6 +551,15 @@ footer .credits { color: var(--inv-muted); font-size: var(--t-small); margin: 12
   /* ================= conteúdo (fonte: curriculo-base.md) ================= */
   var EXPERIENCIA = [
     {
+      cargo: 'Fundador', empresa: 'J Tech', inicio: '2026', fim: 'atual', quando: '2026 até hoje',
+      bullets: [
+        'Fundei a J Tech em 2026, em Fortaleza, para atender pequenas e médias empresas de todo o Brasil.',
+        'Automações, dashboards em Power BI, soluções com IA, sistemas personalizados e desenhos 3D para engenharia.'
+      ],
+      tags: ['Automação', 'Power BI', 'IA aplicada', 'Sistemas personalizados', 'Desenho 3D'],
+      links: [{ t: 'Ver site da J Tech', u: 'https://jtech-dados.github.io/jtech-portfolio/' }]
+    },
+    {
       cargo: 'Analista de Dados Sênior', empresa: 'Hapvida', inicio: '2025-07', fim: 'atual', quando: 'jul/2025 até hoje',
       bullets: [
         'Consultas SQL avançadas (CTEs, window functions) no Data Lake corporativo, dando suporte a análises de outras áreas.',
@@ -707,7 +716,7 @@ footer .credits { color: var(--inv-muted); font-size: var(--t-small); margin: 12
   $('tl').innerHTML = EXPERIENCIA.map(function (x) {
     var when = x.fim === 'atual' ? esc(x.quando.replace('até hoje', '')) + '<span class="now">até hoje</span>' : esc(x.quando);
     return '<li><div class="who"><p class="org">' + esc(x.empresa) + '</p><p class="when">' + when + '</p></div><div class="what"><h3>' + esc(x.cargo) + '</h3>' +
-      '<ul class="b">' + x.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' + tags(x.tags) + '</div></li>';
+      '<ul class="b">' + x.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' + tags(x.tags) + links(x.links) + '</div></li>';
   }).join('');
 
   $('featured').innerHTML = PROJETOS.filter(function (p) { return p.destaque; }).map(function (p) {
